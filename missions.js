@@ -9,7 +9,7 @@ const guide = {
 const missions = [
     {
         title: 'Reception', start: '/reception', commands: ['ls', 'cat'], word: 'OWL',
-        story: 'The receptionist left a handoff note on this workstation. Type ls (lowercase L and S), press Enter, then use cat followed by the note’s filename to read it.',
+        story: 'The receptionist left a handoff note on this workstation. Type ls and press Enter to list the files. Then type cat, a space, and the filename to read the note.',
         files: { 'handoff.txt': 'Friday handoff: the key to the first door is @FLAG. See you Monday!', 'hours.txt': 'Reception closes at six.' },
         hints: ['Which filename sounds like a message for the next person?', 'Type ls. Look for handoff.txt.', 'cat /reception/handoff.txt']
     },
