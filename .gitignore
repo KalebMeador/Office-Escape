@@ -1,0 +1,8 @@
+# Visual Studio workspace and per-user settings
+.vs/
+*.suo
+*.user
+
+# Windows-generated files
+Thumbs.db
+Desktop.ini

@@ -1,0 +1,534 @@
+﻿:root {
+    color-scheme: dark;
+    --ink: #f1f3eb;
+    --muted: #b2bab1;
+    --line: #364139;
+    --lime: #d0ef89;
+    --amber: #ffcd7a;
+    font: 16px/1.55 "Inter",system-ui,sans-serif;
+    background: #101613;
+    color: var(--ink)
+}
+
+* {
+    box-sizing: border-box
+}
+
+body {
+    margin: 0
+}
+
+header {
+    border-bottom: 1px solid var(--line);
+    background: #151d18
+}
+
+.wrap {
+    max-width: 1160px;
+    margin: auto;
+    padding: 0 5%
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    height: 65px
+}
+
+    .brand span, .intro p, .brief > p:last-child, .note, footer {
+        color: var(--muted)
+    }
+
+.mark {
+    border-radius: 7px;
+    background: var(--lime);
+    color: #1a2315;
+    padding: 0 7px;
+    font: bold 23px/32px monospace
+}
+
+.intro {
+    padding: 38px 0 22px
+}
+
+.eyebrow, small {
+    font: bold .72rem/1.4 "IBM Plex Mono",monospace;
+    letter-spacing: .14em
+}
+
+.eyebrow, h1 span, small {
+    color: var(--lime)
+}
+
+h1, h2, h3, p {
+    margin: 0
+}
+
+h1 {
+    font-size: clamp(2.5rem,6vw,4.2rem);
+    line-height: 1.12;
+    letter-spacing: -.065em;
+    margin: 8px 0
+}
+
+h2 {
+    font-size: 1.75rem;
+    letter-spacing: -.035em
+}
+
+h3 {
+    font-size: 1.15rem;
+    margin: 2px 0 12px
+}
+
+ol {
+    padding: 0;
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    gap: 5px
+}
+
+li {
+    border-top: 3px solid var(--line);
+    padding: 9px 2px;
+    color: var(--muted);
+    font-size: .83rem
+}
+
+    li.active {
+        border-color: var(--amber);
+        color: var(--amber)
+    }
+
+    li.done {
+        border-color: var(--lime);
+        color: var(--lime)
+    }
+
+.brief {
+    margin: 28px 0 18px
+}
+
+    .brief .eyebrow {
+        color: var(--amber)
+    }
+
+.grid {
+    display: grid;
+    grid-template-columns: 1.8fr 1fr;
+    gap: 18px;
+    align-items: start
+}
+
+.terminal, .card, #summary {
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    overflow: hidden
+}
+
+.terminal {
+    background: #090f0c
+}
+
+.bar, form {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 12px 17px
+}
+
+.bar {
+    background: #202922;
+    border-bottom: 1px solid var(--line)
+}
+
+#output, form, code, .line, #clues {
+    font-family: "IBM Plex Mono",Consolas,monospace
+}
+
+#output {
+    height: 280px;
+    overflow: auto;
+    padding: 17px;
+    font-size: .94rem
+}
+
+.line, #clues p {
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+    margin-bottom: 9px
+}
+
+.typed, label {
+    color: var(--lime)
+}
+
+.error {
+    color: #ffa98f
+}
+
+.success {
+    color: var(--amber)
+}
+
+form {
+    border-top: 1px solid var(--line)
+}
+
+input {
+    min-width: 0;
+    flex: 1;
+    color: var(--ink);
+    background: transparent;
+    border: 0;
+    font: inherit;
+    padding: 8px
+}
+
+button {
+    background: var(--lime);
+    color: #13200e;
+    border: 0;
+    border-radius: 6px;
+    padding: 8px 13px;
+    font-size: .88rem;
+    line-height: 1.4;
+    font-family: inherit;
+    font-weight: 650;
+    cursor: pointer
+}
+
+    button:disabled {
+        opacity: .55;
+        cursor: default
+    }
+
+    button:hover:enabled {
+        filter: brightness(1.12)
+    }
+
+:focus-visible {
+    outline: 2px solid var(--amber);
+    outline-offset: 2px
+}
+
+.card, #summary {
+    padding: 18px;
+    background: #19211b
+}
+
+    .card + .card {
+        margin-top: 12px
+    }
+
+.note {
+    font-size: .87rem;
+    margin-top: 12px
+}
+
+.entry {
+    padding: 5px 0;
+    font-size: .88rem
+}
+
+    .entry code, .note code {
+        color: var(--amber)
+    }
+
+#clues p {
+    font-size: .82rem;
+    margin: 12px 0 0
+}
+
+.metrics, #skills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+    margin: 20px 0
+}
+
+.stat {
+    display: grid
+}
+
+    .stat strong {
+        font: 600 1.2rem monospace
+    }
+
+    .stat span, footer {
+        font-size: .8rem;
+        color: var(--muted)
+    }
+
+footer {
+    border-top: 1px solid var(--line);
+    margin-top: 35px;
+    padding: 17px 0
+}
+
+#next {
+    margin: 12px 17px
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+    text-align: left
+}
+
+th, td {
+    padding: 9px;
+    border-bottom: 1px solid var(--line)
+}
+
+.scroll {
+    overflow: auto;
+    margin-bottom: 18px
+}
+
+#summary h3 {
+    margin-top: 24px
+}
+
+button[hidden], [hidden] {
+    display: none !important
+}
+
+@media(max-width:720px) {
+    .grid {
+        grid-template-columns: 1fr
+    }
+
+    .intro {
+        padding-top: 24px
+    }
+
+    .brand span {
+        font-size: .85rem
+    }
+
+    #output {
+        height: 225px
+    }
+
+    .metrics {
+        gap: 16px
+    }
+
+    li {
+        font-size: .74rem
+    }
+
+    .wrap {
+        padding-inline: 4%
+    }
+}
+
+:root {
+    background: #101824;
+    --muted: #aebdcd;
+    --ink: #f1f6fa;
+    --lime: #9de6de;
+    --amber: #ffbf98;
+    --line: #394a59
+}
+
+header, .bar, .card, #summary {
+    background: #1b2835
+}
+
+.mark {
+    background: #ffbf98;
+    font: 800 15px/32px monospace
+}
+
+.brand span {
+    border-left: 1px solid var(--line);
+    padding-left: 12px
+}
+
+.intro p:last-child {
+    max-width: 68ch
+}
+
+.intro {
+    padding: 25px 0 18px
+}
+
+.plan {
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    background: #172330;
+    padding: 15px 18px
+}
+
+.planhead {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px
+}
+
+    .planhead h2 {
+        font-size: 1rem;
+        letter-spacing: 0
+    }
+
+#count {
+    font: 600 .85rem monospace;
+    color: var(--lime)
+}
+
+#route {
+    grid-template-columns: repeat(5,minmax(0,1fr));
+    margin: 12px 0 0
+}
+
+    #route li {
+        display: grid;
+        gap: 5px;
+        align-content: start;
+        border-top: 2px solid var(--line);
+        padding-top: 8px;
+        line-height: 1.2
+    }
+
+        #route li.active {
+            border-color: var(--amber)
+        }
+
+        #route li.done {
+            border-color: var(--lime)
+        }
+
+.door-icon {
+    display: block;
+    width: 17px;
+    height: 24px;
+    border: 2px solid currentColor;
+    border-bottom-width: 3px;
+    position: relative
+}
+
+    .door-icon:after {
+        content: '';
+        width: 3px;
+        height: 3px;
+        background: currentColor;
+        position: absolute;
+        right: 2px;
+        top: 9px
+    }
+
+.done .door-icon:after {
+    content: '✓';
+    background: none;
+    top: 0;
+    right: 3px;
+    font-size: 13px
+}
+
+.brief {
+    margin: 20px 0 14px
+}
+
+.terminal {
+    background: #0b121b
+}
+
+#output {
+    height: 185px
+}
+
+.card {
+    padding: 14px 16px
+}
+
+.keypad {
+    margin-top: 12px
+}
+
+    .keypad form {
+        display: block;
+        border: 0;
+        padding: 0
+    }
+
+    .keypad label {
+        font: 700 1.1rem system-ui;
+        color: var(--ink)
+    }
+
+    .keypad p, .note {
+        font-size: .85rem;
+        color: var(--muted)
+    }
+
+.keyrow {
+    display: flex;
+    gap: 8px;
+    margin-top: 8px
+}
+
+    .keyrow input {
+        background: #101824;
+        border: 1px solid var(--line);
+        border-radius: 5px
+    }
+
+    .keyrow button {
+        background: var(--amber)
+    }
+
+#feedback:not(:empty) {
+    margin-top: 8px;
+    color: var(--amber)
+}
+
+#summary {
+    margin: 20px 0
+}
+
+details {
+    margin: 15px 0
+}
+
+summary {
+    cursor: pointer
+}
+
+main {
+    padding-bottom: 32px !important
+}
+
+small {
+    letter-spacing: 0;
+    color: var(--lime);
+    overflow-wrap: anywhere
+}
+
+.entry {
+    border-bottom: 1px solid var(--line);
+    padding: 7px 0
+}
+
+    .entry code {
+        display: block
+    }
+
+@media(max-width:500px) {
+    .plan {
+        padding: 12px 10px
+    }
+
+    #route li {
+        font-size: .7rem
+    }
+
+    .intro {
+        padding: 20px 0 14px
+    }
+}

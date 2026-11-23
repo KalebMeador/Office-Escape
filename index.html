@@ -1,0 +1,184 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Office Escape</title>
+
+    <link rel="stylesheet" href="styles.css">
+
+    <script defer src="missions.js"></script>
+    <script defer src="game.js"></script>
+</head>
+
+<body>
+    <header>
+        <div class="wrap brand">
+            <b class="mark" aria-hidden="true">OE</b>
+            <strong>Office Escape</strong>
+        </div>
+    </header>
+
+    <main class="wrap">
+        <div class="intro">
+            <p class="eyebrow">A LINUX ESCAPE GAME</p>
+            <h1>Office Escape</h1>
+
+            <p>
+                Friday, 6:05 p.m. Your intern badge has expired.
+                The night technician left a key at each workstation.
+                Five doors stand between you and the weekend.
+            </p>
+        </div>
+        <section class="card" aria-labelledby="how-to-play">
+            <h2 id="how-to-play">How to play</h2>
+
+            <p>
+                Find one key at each workstation.
+                Opening the fifth door lets you escape.
+            </p>
+
+            <p class="entry">
+                <strong>1. Look around.</strong>
+                In the Terminal, type <code>ls</code> (lowercase L and S)
+                and press Enter to list the files.
+            </p>
+
+            <p class="entry">
+                <strong>2. Read a file.</strong>
+                At Reception, try <code>cat hours.txt</code>.
+                Then use <code>cat</code> with another filename to look for the key.
+            </p>
+
+            <p class="entry">
+                <strong>3. Open the door.</strong>
+                Copy the key from the file into the Door keypad
+                and select <strong>Unlock door</strong>.
+            </p>
+
+            <p class="note">
+                You can retry a command or key.
+                Type <code>help</code> for command examples, or select
+                <strong>Get a nudge</strong> for a clue.
+                Each room offers three hints. The last one gives the answer.
+            </p>
+        </section>
+
+        <section class="plan" aria-label="Office floor plan">
+            <div class="planhead">
+                <h2>Office floor plan</h2>
+                <b id="count"></b>
+            </div>
+
+            <ol id="route"></ol>
+        </section>
+
+        <div id="game">
+            <section class="brief">
+                <p class="eyebrow" id="stage"></p>
+                <h2 id="title" tabindex="-1"></h2>
+                <p id="story"></p>
+            </section>
+
+            <div class="grid">
+                <div>
+                    <section class="terminal" aria-label="Terminal">
+                        <div class="bar">
+                            <b>›_ &nbsp; Terminal</b>
+                            <small id="cwd"></small>
+                        </div>
+
+                        <div id="output"
+                             role="log"
+                             tabindex="0"
+                             aria-label="Terminal output"></div>
+
+                        <form id="form" autocomplete="off">
+                            <label for="command" aria-label="Linux command">$</label>
+
+                            <input type="text"
+                                   id="command"
+                                   placeholder="Type a command…"
+                                   autocapitalize="none"
+                                   spellcheck="false">
+
+                            <button type="submit">Run ↵</button>
+                        </form>
+                    </section>
+
+                    <section class="card keypad" aria-label="Door keypad">
+                        <form id="pad" autocomplete="off">
+                            <label for="door-key">Door keypad</label>
+                            <p>Enter the key you found in a file.</p>
+
+                            <div class="keyrow">
+                                <input type="text"
+                                       id="door-key"
+                                       placeholder="Enter door key"
+                                       spellcheck="false">
+
+                                <button type="submit">Unlock door →</button>
+                            </div>
+                        </form>
+
+                        <p id="feedback" role="status"></p>
+                    </section>
+                </div>
+
+                <aside>
+                    <section class="card">
+                        <h3>Command guide</h3>
+                        <div id="key"></div>
+
+                        <p class="note">
+                            A folder holds files. A name ending in / is a folder.
+                            Type <code>help</code> to see the guide in the terminal.
+                        </p>
+                    </section>
+
+                    <section class="card">
+                        <h3>Need a clue?</h3>
+                        <button type="button" id="hint"></button>
+                        <div id="clues" aria-live="polite"></div>
+                    </section>
+                </aside>
+            </div>
+        </div>
+
+        <section id="summary" hidden>
+            <p class="eyebrow">FIVE DOORS OPEN</p>
+            <h2 id="finish" tabindex="-1">You escaped the office.</h2>
+
+            <p>
+                The lobby door swings open.
+                Your phone buzzes: “See you Monday, intern.”
+            </p>
+
+            <details>
+                <summary>View your practice breakdown</summary>
+
+                <h3>Command skills</h3>
+                <div id="skills"></div>
+
+                <div class="scroll">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th scope="col">Door</th>
+                                <th scope="col">Active time</th>
+                                <th scope="col">Commands</th>
+                                <th scope="col">Mistakes</th>
+                                <th scope="col">Hints</th>
+                            </tr>
+                        </thead>
+                        <tbody id="results"></tbody>
+                    </table>
+                </div>
+            </details>
+
+            <button type="button" id="again">Play again</button>
+        </section>
+    </main>
+</body>
+</html>
